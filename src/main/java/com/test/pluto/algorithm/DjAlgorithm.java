@@ -28,7 +28,7 @@ public class DjAlgorithm implements Algorithm {
     }
 
     /**
-     * Get shortest path to targetVertex
+     * Get the shortest path to targetVertex
      *
      * @param target
      * @return
