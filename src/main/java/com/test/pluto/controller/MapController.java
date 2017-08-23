@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * Description: MapController deal with the path finding between two locations.
+ * Description: MapController deal with path finding between two locations.
  *
  * @author captain
  */
