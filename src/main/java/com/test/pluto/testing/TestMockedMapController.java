@@ -10,11 +10,15 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.internal.matchers.Null;
 import org.mockito.junit.MockitoJUnitRunner;
 import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.fail;
 import static org.mockito.Mockito.*;
 import com.test.pluto.controller.MapController;
 import com.test.pluto.entity.response.ResponseData;
+import sun.invoke.empty.Empty;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,6 +75,163 @@ public class TestMockedMapController{
 		verify(mockMapService, atMost(1)).pathFinding("computerScience", "second", "-31.97444473", "115.8599", "-31.97222274", "115.823", "DJ");
 	}
 
+	//Should throw an error if one of the parameters for the path Request Data is empty.
+	//startBuildingName is empty
+	@Test
+	public void testEmptyPathRequestData1() throws JSONException {
+		System.out.println("\n Inside testEmptyPathRequestData1: \n");
+		System.out.println("	Checking that when startBuildingName is empty, an exception is thrown...");
+
+		requestData.setRequestMessage("hi");
+		MapDataRequest mapDataRequest = new MapDataRequest();
+		//mapDataRequest.setBuilding("computerScience");
+		mapDataRequest.setFloor("second");
+		mapDataRequest.setStartLongitude("-31.97444473");
+		mapDataRequest.setStartLatitude("115.8599");
+		mapDataRequest.setEndLongitude("-31.97222274");
+		mapDataRequest.setEndLatitude("115.823");
+		mapDataRequest.setAlgorithm("DJ");
+		requestData.setMapDataRequest(mapDataRequest);
+
+		try{
+			mapController.pathFinding(requestData);
+			fail("No Exception thrown!");
+		}
+		catch(NullPointerException nu){
+			System.out.println("Exception Thrown");
+		}
+	}
+
+	//startFloor is empty
+	@Test
+	public void testEmptyPathRequestData2() throws JSONException {
+		System.out.println("\n Inside testEmptyPathRequestData2: \n");
+		System.out.println("	Checking that when startFloor is empty, an exception is thrown...");
+
+		requestData.setRequestMessage("hi");
+		MapDataRequest mapDataRequest = new MapDataRequest();
+		mapDataRequest.setBuilding("computerScience");
+		//mapDataRequest.setFloor("second");
+		mapDataRequest.setStartLongitude("-31.97444473");
+		mapDataRequest.setStartLatitude("115.8599");
+		mapDataRequest.setEndLongitude("-31.97222274");
+		mapDataRequest.setEndLatitude("115.823");
+		mapDataRequest.setAlgorithm("DJ");
+		requestData.setMapDataRequest(mapDataRequest);
+
+		try{
+			mapController.pathFinding(requestData);
+			fail("No Exception thrown!");
+		}
+		catch(NullPointerException nu){
+			System.out.println("Exception Thrown");
+		}
+	}
+
+	//startLongitude is empty
+	@Test
+	public void testEmptyPathRequestData3() throws JSONException {
+		System.out.println("\n Inside testEmptyPathRequestData3: \n");
+		System.out.println("	Checking that when startLongitude is empty, an exception is thrown...");
+
+		requestData.setRequestMessage("hi");
+		MapDataRequest mapDataRequest = new MapDataRequest();
+		mapDataRequest.setBuilding("computerScience");
+		mapDataRequest.setFloor("second");
+		//mapDataRequest.setStartLongitude("-31.97444473");
+		mapDataRequest.setStartLatitude("115.8599");
+		mapDataRequest.setEndLongitude("-31.97222274");
+		mapDataRequest.setEndLatitude("115.823");
+		mapDataRequest.setAlgorithm("DJ");
+		requestData.setMapDataRequest(mapDataRequest);
+
+		try{
+			mapController.pathFinding(requestData);
+			fail("No Exception thrown!");
+		}
+		catch(NullPointerException nu){
+			System.out.println("Exception Thrown");
+		}
+	}
+
+	//startLatitude is empty
+	@Test
+	public void testEmptyPathRequestData4() throws JSONException {
+		System.out.println("\n Inside testEmptyPathRequestData4: \n");
+		System.out.println("	Checking that when startLatitude is empty, an exception is thrown...");
+
+		requestData.setRequestMessage("hi");
+		MapDataRequest mapDataRequest = new MapDataRequest();
+		mapDataRequest.setBuilding("computerScience");
+		mapDataRequest.setFloor("second");
+		mapDataRequest.setStartLongitude("-31.97444473");
+		//mapDataRequest.setStartLatitude("115.8599");
+		mapDataRequest.setEndLongitude("-31.97222274");
+		mapDataRequest.setEndLatitude("115.823");
+		mapDataRequest.setAlgorithm("DJ");
+		requestData.setMapDataRequest(mapDataRequest);
+
+		try{
+			mapController.pathFinding(requestData);
+			fail("No Exception thrown!");
+		}
+		catch(NullPointerException nu){
+			System.out.println("Exception Thrown");
+		}
+	}
+
+	//EndLongitude is empty
+	@Test
+	public void testEmptyPathRequestData5() throws JSONException {
+		System.out.println("\n Inside testEmptyPathRequestData5: \n");
+		System.out.println("	Checking that when endLongitude is empty, an exception is thrown...");
+
+		requestData.setRequestMessage("hi");
+		MapDataRequest mapDataRequest = new MapDataRequest();
+		mapDataRequest.setBuilding("computerScience");
+		mapDataRequest.setFloor("second");
+		mapDataRequest.setStartLongitude("-31.97444473");
+		mapDataRequest.setStartLatitude("115.8599");
+		//mapDataRequest.setEndLongitude("-31.97222274");
+		mapDataRequest.setEndLatitude("115.823");
+		mapDataRequest.setAlgorithm("DJ");
+		requestData.setMapDataRequest(mapDataRequest);
+
+		try{
+			mapController.pathFinding(requestData);
+			fail("No Exception thrown!");
+		}
+		catch(NullPointerException nu){
+			System.out.println("Exception Thrown");
+		}
+	}
+
+	//endLatitude is empty
+	@Test
+	public void testEmptyPathRequestData6() throws JSONException {
+		System.out.println("\n Inside testEmptyPathRequestData6: \n");
+		System.out.println("	Checking that when endLatitude is empty, an exception is thrown...");
+
+		requestData.setRequestMessage("hi");
+		MapDataRequest mapDataRequest = new MapDataRequest();
+		mapDataRequest.setBuilding("computerScience");
+		mapDataRequest.setFloor("second");
+		mapDataRequest.setStartLongitude("-31.97444473");
+		mapDataRequest.setStartLatitude("115.8599");
+		mapDataRequest.setEndLongitude("-31.97222274");
+		//mapDataRequest.setEndLatitude("115.823");
+		mapDataRequest.setAlgorithm("DJ");
+		requestData.setMapDataRequest(mapDataRequest);
+
+		try{
+			mapController.pathFinding(requestData);
+			fail("No Exception thrown!");
+		}
+		catch(NullPointerException nu){
+			System.out.println("Exception Thrown");
+		}
+	}
+
 	//Verify that it got back a responseMessage and that is the correct responseMessage
 	@Test
 	public void testResponseSuccess(){
@@ -100,12 +261,18 @@ public class TestMockedMapController{
 
 		String message = responseData.getResponseMessage();
 		String code = responseData.getResponseCode();
-
+		MapDataResponse mapDataResponse = responseData.getMapDataResponse();
 		System.out.println("	Testing for SUCCESS message...");
 		assertEquals("SUCCESS", message);
 
 		System.out.println("	Testing for 0000 code...");
 		assertEquals("0000", code);
+
+		assertEquals("computerScience",mapDataResponse.getBuilding());
+		assertEquals("",mapDataResponse.getStartLatitude());
+		assertEquals("",mapDataResponse.getStartLongitude());
+		assertEquals("",mapDataResponse.getStartLongitude());
+
 	}
 
 	//test using no paramters i.e empty parameters

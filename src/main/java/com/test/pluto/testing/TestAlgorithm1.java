@@ -52,7 +52,7 @@ public class TestAlgorithm1 {
 		G59 = indoorMap.getVertex().get(58); //LeftLandingBetweenSecondAndFirst1
 		U47 = indoorMap.getVertex().get(46); //2.05Door1
 		I9 = indoorMap.getVertex().get(8); //2.22Door
-		testData = new TestData();
+
 		mapServiceImpl = new MapServiceImpl();
 	}
 
