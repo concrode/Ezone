@@ -42,6 +42,11 @@
         <beans:property name="annotatedClasses">
             <beans:list>
                 <beans:value>com.test.pluto.entity.User</beans:value>
+                <beans:value>com.test.pluto.bean.FloorPlanBean</beans:value>
+                <beans:value>com.test.pluto.bean.BuildingBean</beans:value>
+                <beans:value>com.test.pluto.bean.FloorBean</beans:value>
+                <beans:value>com.test.pluto.bean.LinkBean</beans:value>
+                <beans:value>com.test.pluto.bean.LocationBean</beans:value>
             </beans:list>
         </beans:property>
         <beans:property name="hibernateProperties">
@@ -51,6 +56,8 @@
                 <beans:prop key="hibernate.format_sql">true</beans:prop>
                 <beans:prop key="hibernate.enable_lazy_load_no_trans">true</beans:prop>
                 <beans:prop key="lazy">false</beans:prop>
+                <beans:prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/plutoDB</beans:prop>
+                <beans:prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</beans:prop>
             </beans:props>
         </beans:property>
     </beans:bean>

@@ -7,10 +7,9 @@ import java.util.*;
 
 
 /**
+ * Description: DjAlgorithm , get the shortest path
  *
- * DjAlgorithm implements the interface algorithm
- *
- * @author captain
+ * @author Yuntian & Lei Wang
  */
 public class DjAlgorithm implements Algorithm {
 
@@ -20,9 +19,9 @@ public class DjAlgorithm implements Algorithm {
      * @param startVertex
      */
     @Override
-    public void createGraph(Vertex startVertex) {
+    public void createGraph(Vertex startVertex, Vertex endVertex) {
 
-        if(null != startVertex) {
+        if(null != startVertex && null != endVertex) {
             DjAlgorithm(startVertex);
         }
     }
@@ -37,12 +36,13 @@ public class DjAlgorithm implements Algorithm {
     public List<Vertex> getShortestPathTo(Vertex target) {
         List<Vertex> path = new ArrayList<Vertex>();
         for (Vertex vertex = target; vertex != null; vertex = vertex.previous) {
-            System.out.println("!!!!!!!! vertex.previous=" + vertex.previous);
+            System.out.println("!!!!!!!!! vertex.previous=" + vertex.previous);
             path.add(vertex);
         }
 
         Collections.reverse(path);
         return path;
+
     }
 
     /**
@@ -62,17 +62,23 @@ public class DjAlgorithm implements Algorithm {
             //Get the first element in the vertexQueue
             Vertex currentVertex = vertexQueue.poll();
 
+            //System.out.println("ˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ currentVertex =" + currentVertex.getLocationId());
+
             // Visit each edge of currentVertex
             for (Edge e : currentVertex.adjacency) {
-                Vertex v = e.target;
-                double weight = e.weight;
-                double distanceThroughU = currentVertex.minDistance + weight;
+                //System.out.println("************* currentVertex.adjacency.length =" + currentVertex.adjacency.length);
 
-                if (distanceThroughU < v.minDistance) {
-                    vertexQueue.remove(v);
-                    v.minDistance = distanceThroughU ;
-                    v.previous = currentVertex;
-                    vertexQueue.add(v);
+                if(null != e && null != e.target) {
+                    Vertex v = e.target;
+                    //System.out.println("************* e.target =" + v.getLocationId());
+                    double weight = e.weight;
+                    double distanceThroughU = currentVertex.minDistance + weight;
+                    if (distanceThroughU < v.minDistance) {
+                        vertexQueue.remove(v);
+                        v.minDistance = distanceThroughU ;
+                        v.previous = currentVertex;
+                        vertexQueue.add(v);
+                    }
                 }
             }
         }

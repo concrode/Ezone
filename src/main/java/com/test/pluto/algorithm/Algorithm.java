@@ -6,9 +6,9 @@ import com.test.pluto.entity.Vertex;
 import java.util.List;
 
 /**
- * For different algorithm to implement different algorithm
+ * Description: Basic class algorithm
  *
- * @author captain
+ * @author Yuntian
  */
 public interface Algorithm {
 
@@ -18,7 +18,7 @@ public interface Algorithm {
      *
      * @param startVertex
      */
-    void createGraph(Vertex startVertex);
+    void createGraph(Vertex startVertex, Vertex endVertex);
 
 
     /**
@@ -28,4 +28,8 @@ public interface Algorithm {
      * @return
      */
     List<Vertex> getShortestPathTo(Vertex endVertex);
+
+
+
+
 }

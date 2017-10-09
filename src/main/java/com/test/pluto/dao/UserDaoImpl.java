@@ -7,7 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 /**
+ * Description: For test
+ *
  * Created by captain on 2017/5/14.
+ *
+ * @author Yuntian
  */
 @Repository
 public class UserDaoImpl implements UserDao{
@@ -25,5 +29,4 @@ public class UserDaoImpl implements UserDao{
         User user = (User) session.load(User.class, name);
         return user;
     }
-
 }
