@@ -1,39 +1,60 @@
 package com.test.pluto.service;
 
+import com.test.pluto.bean.FloorPlanBean;
+import com.test.pluto.bean.RoomBean;
 import com.test.pluto.entity.IndoorMap;
 import com.test.pluto.entity.Vertex;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
- * For pathFinding and get shortest path between two vertex
+ * Description: MapService for MapController
  *
- * @author captain
+ * @author Yuntian
  */
 public interface MapService {
 
     /**
-     * Path finding
+     * Description: For path finding. Use this one.
      *
-     * @param building
-     * @param floor
+     * @param startBuildingName
+     * @param startFloor
      * @param startLongitude
      * @param startLatitude
+     * @param endBuildingName
+     * @param endFloor
      * @param endLongitude
      * @param endLatitude
      * @param algorithm
      * @return
      */
-    List<Vertex> pathFinding(String building, String floor, String startLongitude, String startLatitude,
-                             String endLongitude, String endLatitude, String algorithm);
+    List<Vertex> pathFinding(String startBuildingName, String startFloor, String startLongitude, String startLatitude,
+                             String endBuildingName, String endFloor, String endLongitude, String endLatitude,
+                             String algorithm);
 
     /**
-     * Find the nearest vertex based on the longitude and latitude
+     * Description: Get floorPlan based on building
      *
-     * @param map
-     * @param longitude
-     * @param latitude
+     * @param buildingName
      * @return
      */
-    Vertex getNearestVertexForLocation(IndoorMap map, String longitude, String latitude);
+    List<FloorPlanBean> getFloorPlanByName(String buildingName);
+
+    /**
+     * Description: Get floorPlan based on floor level
+     *
+     * @param floor
+     * @return
+     */
+    List<FloorPlanBean> getFloorPlanByFloor(String floor);
+
+    /**
+     * Description: Get rooms based on building
+     *
+     * @param buildingName
+     * @return
+     */
+    List<RoomBean> getRoomsByBuilding(String buildingName);
+
 }

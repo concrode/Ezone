@@ -9,14 +9,22 @@ package com.test.pluto.entity;
 public class Edge {
 
     // Linked vertex
-    public final Vertex target;
+    public Vertex target;
 
     // Weight to linked vertex
-    public final double weight;
+    public double weight;
 
     public Edge(Vertex target, double weight) {
         this.target = target;
         this.weight = weight;
     }
 
+
+    public Vertex getTarget() {
+        return target;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
 }

@@ -10,7 +10,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.transaction.Transactional;
 
 /**
+ * Description: For test
+ *
  * Created by captain on 2017/5/14.
+ *
+ * @author Yuntian
  */
 @Service
 public class UserServiceImpl implements UserService {

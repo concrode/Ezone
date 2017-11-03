@@ -3,35 +3,22 @@ package com.test.pluto.entity.request;
 import javax.persistence.Entity;
 
 /**
- * Receive the request from the front. Used in the mapController.
+ * Description: Basic request entity
  *
  * ==============================================================
  * {
-        "requestMessage": "",
-        "mapDataRequest":{
-                "building": "computer",
-                "floor": "second",
-                "startLongitude": "-31.977733",
-                "startLatitude": "115.815599",
-                "endLongitude": "-31.9774",
-                "endLatitude": "115.8154333",
-                "algorithm": "DJ"
-        }
-
+        "requestMessage": ""
     }
- *==================================================================
+ * ==================================================================
  *
  * @author captain
  */
 @Entity
 public class RequestData {
-
     private String requestMessage;
-    private MapDataRequest mapDataRequest;
 
-    public RequestData(String requestMessage, MapDataRequest mapDataRequest) {
+    public RequestData(String requestMessage) {
         this.requestMessage = requestMessage;
-        this.mapDataRequest = mapDataRequest;
     }
 
     public RequestData() {
@@ -45,11 +32,4 @@ public class RequestData {
         this.requestMessage = requestMessage;
     }
 
-    public MapDataRequest getMapDataRequest() {
-        return this.mapDataRequest;
-    }
-
-    public void setMapDataRequest(MapDataRequest mapDataRequest) {
-        this.mapDataRequest = mapDataRequest;
-    }
 }

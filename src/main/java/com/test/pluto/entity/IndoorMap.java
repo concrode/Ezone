@@ -12,7 +12,7 @@ import java.util.Stack;
  * Indoor map has an attribute algorithm. It will call algorithm to create the graph
  * and get the shortest path.
  *
- * @author captain
+ * @author Yuntian
  */
 public class IndoorMap {
 
@@ -26,14 +26,17 @@ public class IndoorMap {
     }
 
 
-    public List<Vertex> findPath(Vertex startVertex, Vertex endVertext) {
-        algorithm.createGraph(startVertex);
+    public List<Vertex> findPath(Vertex startVertex, Vertex endVertex, Algorithm algorithm) {
 
-        return algorithm.getShortestPathTo(endVertext);
+        algorithm.createGraph(startVertex, endVertex);
+
+        System.out.println("start floor level=" + Integer.parseInt(startVertex.getFloorLevel()));
+        System.out.println("end floor level=" + Integer.parseInt(endVertex.getFloorLevel()));
+
+        return algorithm.getShortestPathTo(endVertex);
 
     }
 
-    // setters and getters
     public String getBuilding() {
         return building;
     }

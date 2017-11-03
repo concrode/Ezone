@@ -3,7 +3,11 @@ package com.test.pluto.entity;
 import javax.persistence.*;
 
 /**
+ * Description: For test
+ *
  * Created by captain on 2017/5/14.
+ *
+ * @author Yuntian
  */
 @Entity
 @Table(name = "user", schema = "plutoDB", catalog = "")

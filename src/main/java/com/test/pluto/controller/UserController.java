@@ -14,7 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * Created by liangwei on 2017/4/11.
+ *
+ * Description: UserController is just for test. Never used in Ezone project.
+ *
+ * @author Yuntian
  */
 @Controller
 public class UserController {
