@@ -1,2 +1,3 @@
-# springMVC
-Backend for indoor navigation
+# Ezone backend
+* Backend for Enzone indoor navigation
+* Use springMVC + Hibernate as architecture
